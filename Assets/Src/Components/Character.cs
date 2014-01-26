@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ally : Character {
+public class Character : MonoBehaviour {
+
+	public int HP;
+	public int atk;
+	public int def;
+	public int spd;
 
 	// Use this for initialization
 	void Start () {
