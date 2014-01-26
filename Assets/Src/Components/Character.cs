@@ -7,6 +7,7 @@ public class Character : MonoBehaviour {
 	public int atk;
 	public int def;
 	public int spd;
+	public int acc;
 
 	// Use this for initialization
 	void Start () {
@@ -16,5 +17,10 @@ public class Character : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+	
+
+	public void attack(Character target){
+
 	}
 }
