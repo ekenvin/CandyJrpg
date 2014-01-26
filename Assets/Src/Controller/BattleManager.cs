@@ -16,7 +16,7 @@ public class BattleManager : MonoBehaviour {
 	private GameObject background;
 	// Use this for initialization
 	void Start () {
-		generateBattle();
+		//generateBattle();
 	}
 	
 	// Update is called once per frame

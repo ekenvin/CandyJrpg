@@ -46,8 +46,28 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Demo\Scripts\BackgroundParallax.cs" />
+     <Compile Include="Assets\Demo\Scripts\BackgroundPropSpawner.cs" />
+     <Compile Include="Assets\Demo\Scripts\Bomb.cs" />
+     <Compile Include="Assets\Demo\Scripts\BombPickup.cs" />
+     <Compile Include="Assets\Demo\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Demo\Scripts\Destroyer.cs" />
+     <Compile Include="Assets\Demo\Scripts\FollowPlayer.cs" />
+     <Compile Include="Assets\Demo\Scripts\Gun.cs" />
+     <Compile Include="Assets\Demo\Scripts\HealthPickup.cs" />
+     <Compile Include="Assets\Demo\Scripts\LayBombs.cs" />
+     <Compile Include="Assets\Demo\Scripts\Pauser.cs" />
+     <Compile Include="Assets\Demo\Scripts\PickupSpawner.cs" />
+     <Compile Include="Assets\Demo\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Demo\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Demo\Scripts\Remover.cs" />
+     <Compile Include="Assets\Demo\Scripts\Score.cs" />
+     <Compile Include="Assets\Demo\Scripts\ScoreShadow.cs" />
+     <Compile Include="Assets\Demo\Scripts\SetParticleSortingLayer.cs" />
+     <Compile Include="Assets\Demo\Scripts\Spawner.cs" />
      <Compile Include="Assets\Src\Components\Ally.cs" />
      <Compile Include="Assets\Src\Components\Character.cs" />
+     <Compile Include="Assets\Src\Components\Door.cs" />
      <Compile Include="Assets\Src\Components\Enemy.cs" />
      <Compile Include="Assets\Src\Controller\BattleManager.cs" />
      <Compile Include="Assets\Src\Controller\PartyManager.cs" />

@@ -6,6 +6,7 @@ public class World : MonoBehaviour {
 
 	public List<Enemy> possibleEnemies;
 	public List<GameObject> possibleBackgrounds;
+	public GameObject currentRoom;
 
 	// Use this for initialization
 	void Start () {
