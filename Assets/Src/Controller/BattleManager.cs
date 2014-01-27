@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour {
 
 	private Battle currentBattle;
 	private World currentWorld;
-	private GameObject background;
+	public GameObject background;
 	// Use this for initialization
 	void Start () {
 		battleEnabled=true;

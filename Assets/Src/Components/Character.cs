@@ -8,6 +8,7 @@ public class Character : MonoBehaviour {
 	public int def;
 	public int spd;
 	public int acc;
+	public int spt;
 
 	// Use this for initialization
 	void Start () {

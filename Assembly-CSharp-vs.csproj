@@ -69,6 +69,7 @@
      <Compile Include="Assets\Src\Components\Character.cs" />
      <Compile Include="Assets\Src\Components\Door.cs" />
      <Compile Include="Assets\Src\Components\Enemy.cs" />
+     <Compile Include="Assets\Src\Components\UI\Button.cs" />
      <Compile Include="Assets\Src\Controller\BattleManager.cs" />
      <Compile Include="Assets\Src\Controller\PartyManager.cs" />
      <Compile Include="Assets\Src\Controller\TurnManager.cs" />
