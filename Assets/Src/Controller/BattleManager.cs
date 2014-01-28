@@ -7,8 +7,8 @@ public class BattleManager : MonoBehaviour {
 	public TurnManager turnManager;
 	public PartyManager partyManager;
 
-	private List<Enemy> enemies;
-	private List<Ally> allies;
+	public List<Enemy> enemies;
+	public List<Ally> allies;
 
 	private List<GameObject> enemyGraphics;
 
@@ -16,6 +16,8 @@ public class BattleManager : MonoBehaviour {
 	public float battleThreshold;
 	public float encounterRate;
 	public bool battleEnabled;
+
+
 
 	private Battle currentBattle;
 	private World currentWorld;
@@ -48,23 +50,10 @@ public class BattleManager : MonoBehaviour {
 		this.enemies=this.generateEnemies();
 		this.allies=partyManager.party;
 		currentBattle=new Battle(this.enemies, this.allies);
-		List<Character> allParticipants=new List<Character>();
-		for(int i=0;i<this.enemies.Count;i++){
-			allParticipants.Add(this.enemies[i]);
-		}
-		for(int i=0;i<this.allies.Count;i++){
-			allParticipants.Add(this.allies[i]);
-		}
 
-		allParticipants.Sort(delegate(Character x, Character y) {
-			if(x.spd>y.spd)
-				return -1;
-			else
-				return 1;
-		});
-
-		turnManager.init(allParticipants,this);
 		battleToScene();
+
+
 	}
 
 	private void battleToScene(){
@@ -74,7 +63,25 @@ public class BattleManager : MonoBehaviour {
 		  	enemyGraphics.Add((GameObject)Instantiate(this.enemies[i].gameObject));
 			enemyGraphics[i].transform.parent=this.background.transform;
 			enemyGraphics[i].transform.Translate(new Vector3(i,0,0));
+			enemyGraphics[i].GetComponent<Button>().onClick=turnManager.selectTarget;
 		}
+
+		List<Character> allParticipants=new List<Character>();
+		for(int i=0;i<enemyGraphics.Count;i++){
+			allParticipants.Add(this.enemyGraphics[i].GetComponent<Enemy>());
+		}
+		for(int i=0;i<this.allies.Count;i++){
+			allParticipants.Add(this.allies[i]);
+		}
+		
+		allParticipants.Sort(delegate(Character x, Character y) {
+			if(x.spd>y.spd)
+				return -1;
+			else
+				return 1;
+		});
+		
+		turnManager.init(allParticipants,this);
 		turnManager.begin();
 	}
 
