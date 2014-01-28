@@ -15,5 +15,6 @@ public class Pauser : MonoBehaviour {
 
 	public void pause(){
 		paused = !paused;
+		Debug.Log("Paused? "+paused);
 	}
 }

@@ -10,6 +10,8 @@ public class Character : MonoBehaviour {
 	public int acc;
 	public int spt;
 
+	public bool isDefending;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -22,6 +24,27 @@ public class Character : MonoBehaviour {
 	
 
 	public void attack(Character target){
+		int hit=Random.Range(0,100);
+		if(hit<acc){
+			int dmg=(atk-target.def)/(isDefending?2:1);
+			target.HP-=dmg;
+			if(target.HP<0)
+				target.HP=0;
+		}
+		else{
+			Debug.Log("MISS!");
+		}
+	}
+
+	public void defend(){
+		isDefending=true;
+	}
+
+	public void special(Character target){
+
+	}
+
+	public void focus(){
 
 	}
 }
