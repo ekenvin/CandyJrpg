@@ -46,6 +46,9 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	public void generateBattle(){
+		AudioManager audioManager=GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+		audioManager.fadeToMusic(audioManager.battleMusic);
+
 		this.currentWorld=GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().currentWorld;
 		this.enemies=this.generateEnemies();
 		this.allies=partyManager.party;
@@ -86,6 +89,9 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	public void endBattle(){
+		AudioManager audioManager=GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+		audioManager.fadeToMusic(audioManager.worldMusic);
+
 		GameObject.Destroy(this.background.gameObject);
 		for(int i=0;i<this.enemies.Count;i++){
 			GameObject.Destroy(enemyGraphics[i].gameObject);

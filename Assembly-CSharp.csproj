@@ -70,6 +70,8 @@
      <Compile Include="Assets\src\Components\Door.cs" />
      <Compile Include="Assets\src\Components\Enemy.cs" />
      <Compile Include="Assets\src\Components\UI\Button.cs" />
+     <Compile Include="Assets\src\Components\UI\OpeningScreen.cs" />
+     <Compile Include="Assets\src\Controller\AudioManager.cs" />
      <Compile Include="Assets\src\Controller\BattleManager.cs" />
      <Compile Include="Assets\src\Controller\PartyManager.cs" />
      <Compile Include="Assets\src\Controller\TurnManager.cs" />

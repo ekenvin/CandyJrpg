@@ -17,7 +17,9 @@ public class CameraFollow : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up the reference.
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		GameObject go=GameObject.FindGameObjectWithTag("Player");
+		if(go)
+			player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
 
@@ -37,12 +39,20 @@ public class CameraFollow : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+		if(player==null){
+			GameObject go=GameObject.FindGameObjectWithTag("Player");
+			if(go)
+				player = GameObject.FindGameObjectWithTag("Player").transform;
+		}
 		TrackPlayer();
+
 	}
 	
 	
 	void TrackPlayer ()
 	{
+		if(player==null)
+			return;
 		// By default the target x and y coordinates of the camera are it's current x and y coordinates.
 		float targetX = transform.position.x;
 		float targetY = transform.position.y;
