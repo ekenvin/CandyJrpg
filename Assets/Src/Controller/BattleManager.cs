@@ -62,10 +62,19 @@ public class BattleManager : MonoBehaviour {
 	private void battleToScene(){
 		enemyGraphics=new List<GameObject>();
 		this.background=(GameObject)Instantiate(this.currentWorld.possibleBackgrounds[0]);
+		this.background.transform.position=GameObject.FindGameObjectWithTag("MainCamera").transform.position;
+
+
 		for(int i=0;i<this.enemies.Count;i++){
 		  	enemyGraphics.Add((GameObject)Instantiate(this.enemies[i].gameObject));
 			enemyGraphics[i].transform.parent=this.background.transform;
-			enemyGraphics[i].transform.Translate(new Vector3(i,0,0));
+
+			int xMod=0;
+			if(i%2==0)
+				xMod=i*-4;
+			else
+				xMod=i*3;
+			enemyGraphics[i].transform.Translate(new Vector3(xMod,0,0));
 			enemyGraphics[i].GetComponent<Button>().onClick=turnManager.selectTarget;
 		}
 

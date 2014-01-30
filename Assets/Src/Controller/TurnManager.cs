@@ -27,6 +27,7 @@ public class TurnManager : MonoBehaviour {
 	public bool targetingEnabled=false;
 
 	public int partySprit=0;
+	public SpriteRenderer allySprite;
 
 	// Use this for initialization
 	void Start () {
@@ -52,6 +53,10 @@ public class TurnManager : MonoBehaviour {
 
 		battleUIInstance=(GameObject)Instantiate(battleUI);
 		battleUIInstance.transform.parent=mBattleManager.background.transform;
+		battleUIInstance.transform.position=GameObject.FindGameObjectWithTag("MainCamera").transform.position;
+		battleUIInstance.transform.Translate(0,0,1);
+
+		allySprite=battleUIInstance.transform.Find("PlayerMount").GetComponent<SpriteRenderer>();
 
 		atkButton=battleUIInstance.transform.Find("AttackBtn").GetComponent<Button>();
 		atkButton.onClick=attack;
@@ -84,6 +89,7 @@ public class TurnManager : MonoBehaviour {
 		Debug.Log("Currently Going "+currentlyGoing.gameObject.name);
 		if(currentlyGoing is Ally){
 			battleUIInstance.SetActive(true);
+			allySprite.sprite=(currentlyGoing as Ally).mSprite;
 		}
 		else{
 			(currentlyGoing as Enemy).determineAction(mBattleManager.allies);
