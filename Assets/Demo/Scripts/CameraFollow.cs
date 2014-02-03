@@ -16,6 +16,7 @@ public class CameraFollow : MonoBehaviour
 
 	void Awake ()
 	{
+		//GetComponent<AudioListener>().enabled=false;
 		// Setting up the reference.
 		GameObject go=GameObject.FindGameObjectWithTag("Player");
 		if(go)
@@ -68,8 +69,8 @@ public class CameraFollow : MonoBehaviour
 			targetY = Mathf.Lerp(transform.position.y, player.position.y, ySmooth * Time.deltaTime);
 
 		// The target x and y coordinates should not be larger than the maximum or smaller than the minimum.
-		targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
-		targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
+		//targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
+		//targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
 
 		// Set the camera's position to the target position with the same z component.
 		transform.position = new Vector3(targetX, targetY, transform.position.z);

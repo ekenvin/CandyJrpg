@@ -23,6 +23,9 @@ public class PlayerControl : MonoBehaviour
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
 
+	public bool moveEnabled=true;
+	public bool doorEnabled=true;
+
 
 	void Awake()
 	{
@@ -34,6 +37,8 @@ public class PlayerControl : MonoBehaviour
 
 	void Update()
 	{
+		if(!moveEnabled)
+			return;
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
 		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
@@ -45,8 +50,10 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+		if(!moveEnabled)
+			return;
 		// Cache the horizontal input.
-		float h = Input.GetAxis("Horizontal");
+		float h = Input.GetAxis("Horizontal")/2;
 
 		// The Speed animator parameter is set to the absolute value of the horizontal input.
 		anim.SetFloat("Speed", Mathf.Abs(h));
@@ -81,7 +88,7 @@ public class PlayerControl : MonoBehaviour
 			AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
 
 			// Add a vertical force to the player.
-			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+			rigidbody2D.AddForce(new Vector2(rigidbody2D.velocity.x, jumpForce));
 
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;

@@ -9,6 +9,8 @@ Project("{080A7A69-4B28-48DC-CDE0-F2181B3E7418}") = "CandyJrpg", "Assembly-CShar
 EndProject
 Project("{080A7A69-4B28-48DC-CDE0-F2181B3E7418}") = "CandyJrpg", "Assembly-UnityScript-firstpass.unityproj", "{F13169A8-D4FD-62BF-99D0-417AD61D34EE}"
 EndProject
+Project("{080A7A69-4B28-48DC-CDE0-F2181B3E7418}") = "CandyJrpg", "Assembly-UnityScript.unityproj", "{33E6751F-FA5D-C1F4-E204-995BE7A5634B}"
+EndProject
 Project("{080A7A69-4B28-48DC-CDE0-F2181B3E7418}") = "CandyJrpg", "Assembly-UnityScript-Editor.unityproj", "{94066398-AC10-72DD-352C-E4184BE018A8}"
 EndProject
 Global
@@ -33,6 +35,10 @@ Global
 		{F13169A8-D4FD-62BF-99D0-417AD61D34EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F13169A8-D4FD-62BF-99D0-417AD61D34EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F13169A8-D4FD-62BF-99D0-417AD61D34EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E6751F-FA5D-C1F4-E204-995BE7A5634B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E6751F-FA5D-C1F4-E204-995BE7A5634B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E6751F-FA5D-C1F4-E204-995BE7A5634B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E6751F-FA5D-C1F4-E204-995BE7A5634B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94066398-AC10-72DD-352C-E4184BE018A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94066398-AC10-72DD-352C-E4184BE018A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94066398-AC10-72DD-352C-E4184BE018A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,7 +47,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																												GlobalSection(MonoDevelopProperties) = preSolution
+																																															GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

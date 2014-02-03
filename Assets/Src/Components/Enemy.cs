@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Enemy : Character {
 
-
+	public Vector2 offset;
 
 	// Use this for initialization
 	void Start () {
@@ -16,9 +16,9 @@ public class Enemy : Character {
 	
 	}
 
-	public void determineAction(List<Ally> allyParty){
+	public string determineAction(List<Ally> allyParty){
 		Debug.Log("Enemy Attack!");
 		int rnd=Random.Range(0,allyParty.Count);
-		attack(allyParty[rnd]);
+		return attack(allyParty[rnd]);
 	}
 }

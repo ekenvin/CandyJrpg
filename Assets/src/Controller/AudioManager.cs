@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource nextMusic;
 	public bool fade;
 
+	public float maxVolume;
+
 	// Use this for initialization
 	void Start () {
 		init ();
@@ -35,9 +37,7 @@ public class AudioManager : MonoBehaviour {
 
 			currentMusic.volume-=0.01f;
 			nextMusic.volume+=0.01f;
-			Debug.Log("fading to "+nextMusic.gameObject.name);
-			Debug.Log(currentMusic.volume +", "+ nextMusic.volume);
-			if(currentMusic.volume<=0 && nextMusic.volume>=1){
+			if(currentMusic.volume<=0 && nextMusic.volume>=0.5f){
 				Debug.Log("music transitioned");
 				currentMusic=nextMusic;
 				fade=false;
@@ -48,7 +48,7 @@ public class AudioManager : MonoBehaviour {
 	public void fadeToMusic(AudioSource newMusic){
 
 		nextMusic=newMusic;
-		nextMusic.Play();
+		//nextMusic.Play();
 		fade=true;
 	}
 }

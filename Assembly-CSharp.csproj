@@ -65,10 +65,24 @@
      <Compile Include="Assets\Demo\Scripts\ScoreShadow.cs" />
      <Compile Include="Assets\Demo\Scripts\SetParticleSortingLayer.cs" />
      <Compile Include="Assets\Demo\Scripts\Spawner.cs" />
+     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\src\Components\Ally.cs" />
+     <Compile Include="Assets\src\Components\AttackEffect.cs" />
+     <Compile Include="Assets\src\Components\BattleEffect.cs" />
+     <Compile Include="Assets\src\Components\BattleTrigger.cs" />
      <Compile Include="Assets\src\Components\Character.cs" />
+     <Compile Include="Assets\src\Components\DamageAllSpc.cs" />
+     <Compile Include="Assets\src\Components\DamageSpc.cs" />
+     <Compile Include="Assets\src\Components\DefEffect.cs" />
+     <Compile Include="Assets\src\Components\DefendSpc.cs" />
      <Compile Include="Assets\src\Components\Door.cs" />
      <Compile Include="Assets\src\Components\Enemy.cs" />
+     <Compile Include="Assets\src\Components\FocEffect.cs" />
+     <Compile Include="Assets\src\Components\HealSpc.cs" />
+     <Compile Include="Assets\src\Components\ParticleHack.cs" />
+     <Compile Include="Assets\src\Components\Scaler.cs" />
+     <Compile Include="Assets\src\Components\SpecialAttack.cs" />
+     <Compile Include="Assets\src\Components\UI\BattleUI.cs" />
      <Compile Include="Assets\src\Components\UI\Button.cs" />
      <Compile Include="Assets\src\Components\UI\OpeningScreen.cs" />
      <Compile Include="Assets\src\Controller\AudioManager.cs" />
@@ -117,6 +131,7 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ConvertDepth.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\VolumeLight\Read Me\Read Me.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
@@ -160,6 +175,7 @@
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Tonemapper.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\DepthOfField34.shader" />
+     <None Include="Assets\VolumeLight\Shader\AdditiveMask.shader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

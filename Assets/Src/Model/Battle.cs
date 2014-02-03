@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Battle {
-	
+public class Battle:MonoBehaviour {
+
+	public List<Enemy> enemies;
+
 	public Battle(List<Enemy> enemies, List<Ally> allies){
 
 	}

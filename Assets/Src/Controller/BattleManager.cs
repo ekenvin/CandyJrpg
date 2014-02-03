@@ -17,11 +17,14 @@ public class BattleManager : MonoBehaviour {
 	public float encounterRate;
 	public bool battleEnabled;
 
-
+	public List<Battle> possibleBattles;
+	
 
 	private Battle currentBattle;
 	private World currentWorld;
 	public GameObject background;
+
+	public PlayerControl hero;
 	// Use this for initialization
 	void Start () {
 		battleEnabled=true;
@@ -35,8 +38,9 @@ public class BattleManager : MonoBehaviour {
 			if(check>battleThreshold){
 				generateBattle();
 				battleEnabled=false;
-				Pauser p=GameObject.FindGameObjectWithTag("WorldManager").GetComponentInChildren<Pauser>();
-				p.pause();
+				hero.moveEnabled=false;
+				//Pauser p=GameObject.FindGameObjectWithTag("WorldManager").GetComponentInChildren<Pauser>();
+				//p.pause();
 			}
 		}
 	}
@@ -46,13 +50,19 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	public void generateBattle(){
+		hero.gameObject.SetActive(false);
 		AudioManager audioManager=GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 		audioManager.fadeToMusic(audioManager.battleMusic);
 
 		this.currentWorld=GameObject.FindGameObjectWithTag("WorldManager").GetComponent<WorldManager>().currentWorld;
 		this.enemies=this.generateEnemies();
 		this.allies=partyManager.party;
-		currentBattle=new Battle(this.enemies, this.allies);
+
+		int rndBattle=Random.Range(0,possibleBattles.Count);
+		currentBattle=possibleBattles[rndBattle];
+		this.enemies=currentBattle.enemies;
+
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().enabled=false;
 
 		battleToScene();
 
@@ -62,19 +72,23 @@ public class BattleManager : MonoBehaviour {
 	private void battleToScene(){
 		enemyGraphics=new List<GameObject>();
 		this.background=(GameObject)Instantiate(this.currentWorld.possibleBackgrounds[0]);
+		this.background.transform.parent=GameObject.FindGameObjectWithTag("MainCamera").transform;
+		//this.background.transform.position=new Vector3(0,0,10);
 		this.background.transform.position=GameObject.FindGameObjectWithTag("MainCamera").transform.position;
 
 
 		for(int i=0;i<this.enemies.Count;i++){
 		  	enemyGraphics.Add((GameObject)Instantiate(this.enemies[i].gameObject));
 			enemyGraphics[i].transform.parent=this.background.transform;
+			enemyGraphics[i].transform.position=this.background.transform.position;
 
 			int xMod=0;
 			if(i%2==0)
-				xMod=i*-4;
+				xMod=i*-5;
 			else
-				xMod=i*3;
-			enemyGraphics[i].transform.Translate(new Vector3(xMod,0,0));
+				xMod=i*5;
+			enemyGraphics[i].transform.Translate(new Vector3(xMod,0,1));
+			enemyGraphics[i].transform.Translate(enemyGraphics[i].GetComponent<Enemy>().offset.x,enemyGraphics[i].GetComponent<Enemy>().offset.y,0);
 			enemyGraphics[i].GetComponent<Button>().onClick=turnManager.selectTarget;
 		}
 
@@ -98,6 +112,7 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	public void endBattle(){
+
 		AudioManager audioManager=GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 		audioManager.fadeToMusic(audioManager.worldMusic);
 
@@ -105,11 +120,13 @@ public class BattleManager : MonoBehaviour {
 		for(int i=0;i<this.enemies.Count;i++){
 			GameObject.Destroy(enemyGraphics[i].gameObject);
 		}
-
+		hero.gameObject.SetActive(true);
+		GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().enabled=true;
 		currentBattle=null;
 		battleProbability=0;
 		battleEnabled=true;
-		Pauser p=GameObject.FindGameObjectWithTag("WorldManager").GetComponentInChildren<Pauser>();
-		p.pause();
+		hero.moveEnabled=true;
+		//Pauser p=GameObject.FindGameObjectWithTag("WorldManager").GetComponentInChildren<Pauser>();
+		//p.pause();
 	}
 }
